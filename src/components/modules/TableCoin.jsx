@@ -36,6 +36,7 @@ function TableCoin({ coins, isLoading }) {
 export default TableCoin;
 
 const TableRow = ({
+  currency,
   coin: {
     image,
     symbol,
@@ -55,7 +56,11 @@ const TableRow = ({
           </div>
         </td>
         <td>{name}</td>
-        <td>${current_price.toLocaleString()}</td>
+
+        {currency === "usd" && <td> ${current_price.toLocaleString()}</td>}
+        {currency === "eur" && <td> €{current_price.toLocaleString()}</td>}
+        {currency === "jpy" && <td> ¥{current_price.toLocaleString()}</td>}
+
         <td className={price_change > 0 ? styled.success : styled.error}>
           {price_change.toFixed(2)}
         </td>
