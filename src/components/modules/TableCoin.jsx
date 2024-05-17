@@ -4,7 +4,7 @@ import ChartDown from "../../assets/chart-down.svg";
 import { RotatingLines } from "react-loader-spinner";
 import styled from "../modules/tablecoin.module.css";
 
-function TableCoin({ coins, isLoading }) {
+function TableCoin({ coins, isLoading, currency }) {
   console.log(coins);
   return (
     <div className={styled.container}>
@@ -24,7 +24,7 @@ function TableCoin({ coins, isLoading }) {
           </thead>
           <tbody>
             {coins.map((coin) => (
-              <TableRow coin={coin} key={coin.id} />
+              <TableRow coin={coin} key={coin.id} currency={currency} />
             ))}
           </tbody>
         </table>
@@ -46,6 +46,7 @@ const TableRow = ({
     price_change_percentage_24h: price_change,
   },
 }) => {
+  console.log(currency);
   return (
     <>
       <tr>
