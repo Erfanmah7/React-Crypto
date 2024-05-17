@@ -46,7 +46,6 @@ const TableRow = ({
     price_change_percentage_24h: price_change,
   },
 }) => {
-  console.log(currency);
   return (
     <>
       <tr>
